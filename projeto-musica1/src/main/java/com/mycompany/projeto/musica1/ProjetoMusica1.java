@@ -1,118 +1,52 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
- */
-
 package com.mycompany.projeto.musica1;
 
-/**
- *
- * @author 202301095701
- */
 import java.util.ArrayList;
 import java.util.Scanner;
 
-// Classe para representar uma Partitura
-class Partitura {
-    String nome;
-    String registradoPor;
+class Aula {
+    String titulo;
+    String descricao;
+    int duracao;
 
     // Construtor
-    public Partitura(String nome, String registradoPor) {
-        this.nome = nome;
-        this.registradoPor = registradoPor;
+    public Aula(String titulo, String descricao, int duracao) {
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.duracao = duracao;
     }
 
-    // Método para imprimir informações da partitura
-    public void imprimirInformacoes() {
-        System.out.println("Nome da Partitura: " + this.nome);
-        System.out.println("Registrado por: " + this.registradoPor);
-    }
-}
-
-// Classe para representar um Usuário
-class Usuario {
-    String nome;
-    ArrayList<Partitura> partituras;
-
-    // Construtor
-    public Usuario(String nome) {
-        this.nome = nome;
-        this.partituras = new ArrayList<>();
-    }
-
-    // Método para adicionar partitura
-    public void adicionarPartitura(Partitura partitura) {
-        this.partituras.add(partitura);
-    }
-
-    // Método para imprimir partituras
-    public void imprimirPartituras() {
-        System.out.println("Partituras de " + this.nome + ":");
-        for (Partitura partitura : this.partituras) {
-            partitura.imprimirInformacoes();
-        }
-    }
-}
-
-// Classe para representar a Comunidade
-class Comunidade {
-    ArrayList<Usuario> usuarios;
-
-    // Construtor
-    public Comunidade() {
-        this.usuarios = new ArrayList<>();
-    }
-
-    // Método para adicionar usuário
-    public void adicionarUsuario(Usuario usuario) {
-        this.usuarios.add(usuario);
-    }
-
-    // Método para encontrar usuário pelo nome
-    public Usuario encontrarUsuario(String nome) {
-        for (Usuario usuario : this.usuarios) {
-            if (usuario.nome.equals(nome)) {
-                return usuario;
-            }
-        }
-        return null;
-    }
+    // Métodos getters e setters
+    // ...
 }
 
 // Classe principal
 public class ProjetoMusica1 {
     public static void main(String[] args) {
-        // Criando a comunidade
-        Comunidade comunidade = new Comunidade();
+        // Criando um ArrayList para armazenar as aulas
+        ArrayList<Aula> aulas = new ArrayList<>();
 
         // Criando um Scanner para ler a entrada do usuário
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Digite o nome do usuário:");
-        String nomeUsuario = scanner.nextLine();
 
-        System.out.println("Digite o nome da partitura:");
-        String nomePartitura = scanner.nextLine();
+        System.out.println("Digite o título da aula:");
+        String tituloAula = scanner.nextLine();
 
-        // Criando um usuário
-        Usuario usuario = new Usuario(nomeUsuario);
+        System.out.println("Digite a descrição da aula:");
+        String descricaoAula = scanner.nextLine();
 
-        // Criando uma partitura
-        Partitura partitura = new Partitura(nomePartitura, nomeUsuario);
+        System.out.println("Digite a duração da aula (em minutos):");
+        int duracaoAula = scanner.nextInt();
 
-        // Adicionando partitura ao usuário
-        usuario.adicionarPartitura(partitura);
+        // Criando uma aula
+        Aula aula = new Aula(tituloAula, descricaoAula, duracaoAula);
 
-        // Adicionando usuário à comunidade
-        comunidade.adicionarUsuario(usuario);
+        // Adicionando a aula ao ArrayList
+        aulas.add(aula);
 
-        // Imprimindo o nome do primeiro usuário na comunidade
-        System.out.println(comunidade.usuarios.get(0).nome);
-
-        // Encontrando um usuário pelo nome e imprimindo suas partituras
-        Usuario usuarioEncontrado = comunidade.encontrarUsuario(nomeUsuario);
-        if (usuarioEncontrado != null) {
-            usuarioEncontrado.imprimirPartituras();
-        }
+        // Imprimindo as informações da aula
+        System.out.println("Aula criada com sucesso!");
+        System.out.println("Título: " + aula.titulo);
+        System.out.println("Descrição: " + aula.descricao);
+        System.out.println("Duração: " + aula.duracao + " minutos");
     }
 }
