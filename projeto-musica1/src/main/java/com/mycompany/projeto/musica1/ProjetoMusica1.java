@@ -30,6 +30,7 @@ public class ProjetoMusica1 {
     public static void main(String[] args) {
         // Criando um ArrayList para armazenar as aulas
         ArrayList<Aula> aulas = new ArrayList<>();
+        ArrayList<Usuario> usuarios = new ArrayList<>();
         
         Aula aula1 = new Aula("Aula 1","asasas",2);
         Aula aula2 = new Aula("Aula 2","asasas",2);
@@ -38,17 +39,22 @@ public class ProjetoMusica1 {
         aulas.add(aula2);
         
         Usuario Vinicius = new Usuario("Vinicius","vini24","1234");
+        Usuario Pinicius = new Usuario("Pinicius","vini24","1234");
         
-        Usuario Pinicius = new Usuario("Vinicius","vini24","1234");
+        usuarios.add(Vinicius);
+        usuarios.add(Pinicius);
         
         Vinicius.addAula(aula1);
         Pinicius.addAula(aula2);
-        
+
         Vinicius.listar();
         
         String nome = "";
         String descricao = "";
         int duracao = 0;
+        
+        String username;
+        String senha;
        
         int teste = 0;
         while (teste == 0) {
@@ -79,8 +85,14 @@ public class ProjetoMusica1 {
             }
             
             if (cursor == 3) {
-                for (int x = 0 ; x < aulas.size() ; x++) {
+               for (int x = 0 ; x < aulas.size() ; x++) {
                     System.out.println(aulas.get(x).getName());
+                } 
+            }
+            
+            if (cursor == 4) {
+                for (int x = 0 ; x < usuarios.size() ; x++) {
+                    System.out.println(usuarios.get(x).getNome());
                 }
             }
         }
