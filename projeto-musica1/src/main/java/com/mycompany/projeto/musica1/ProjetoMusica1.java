@@ -95,6 +95,19 @@ public class ProjetoMusica1 {
                     System.out.println(usuarios.get(x).getNome());
                 }
             }
+            
+            if (cursor == 2){
+                System.out.println("Nome:");
+                nome = scanner.next();
+                
+                System.out.println("Username: ");
+                username = scanner.next();
+                
+                System.out.println("Senha:");
+                senha = scanner.next();
+  
+                usuarios.add(new Usuario(nome,username,senha));
+            }
         }
     }
 }
