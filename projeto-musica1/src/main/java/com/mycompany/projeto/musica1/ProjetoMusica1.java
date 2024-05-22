@@ -38,8 +38,8 @@ public class ProjetoMusica1 {
         aulas.add(aula1);
         aulas.add(aula2);
         
-        Usuario Vinicius = new Usuario("Vinicius","vini24","1234");
-        Usuario Pinicius = new Usuario("Pinicius","vini24","1234");
+        Usuario Vinicius = new Usuario("Vinicius","vini","123");
+        Usuario Pinicius = new Usuario("Pinicius","pini","123");
         
         usuarios.add(Vinicius);
         usuarios.add(Pinicius);
@@ -107,6 +107,27 @@ public class ProjetoMusica1 {
                 senha = scanner.next();
   
                 usuarios.add(new Usuario(nome,username,senha));
+            }
+            
+            if (cursor == 5) {
+                System.out.println("Username: ");
+                username = scanner.next();
+
+                System.out.println("Senha:");
+                senha = scanner.next();
+
+                boolean loggedIn = false;
+                for (Usuario usuario : usuarios) {
+                    if (usuario.getUsername().equals(username) && usuario.getSenha().equals(senha)) {
+                        loggedIn = true;
+                        System.out.println("Login bem-sucedido!");
+                        break;
+                    }
+                }
+
+                if (!loggedIn) {
+                    System.out.println("Falha no login. Tente novamente.");
+                }
             }
         }
     }
