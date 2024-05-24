@@ -3,12 +3,11 @@ package com.mycompany.projeto.musica1;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class Aula {
+class Aula extends TelaLoginProfessor{
     private String titulo;
     private String descricao;
     private int duracao;
     
-
 
     // Construtor
     public Aula(String titulo, String descricao, int duracao) {
@@ -29,9 +28,7 @@ class Aula {
 // Classe principal
 public class FoiLogado {
     
-    public void telaprof() {
-        ArrayList<Aula> aulas = new ArrayList<>();
-        ArrayList<Usuario> usuarios = new ArrayList<>();
+    public void telaprof(ArrayList<Aula> a, ArrayList<Usuario> b) {
         String nome = "";
         String descricao = "";
         int duracao = 0;
@@ -64,18 +61,18 @@ public class FoiLogado {
                 System.out.println("Da a Duracao");
                 duracao = scanner.nextInt();
   
-                aulas.add(new Aula(nome,descricao,duracao));
+                a.add(new Aula(nome,descricao,duracao));
             }
             
             if (cursor == 2) {
-               for (int x = 0 ; x < aulas.size() ; x++) {
-                    System.out.println(aulas.get(x).getName());
+               for (int x = 0 ; x < a.size() ; x++) {
+                    System.out.println(a.get(x).getName());
                 } 
             }
             
             if (cursor == 3) {
-                for (int x = 0 ; x < usuarios.size() ; x++) {
-                    System.out.println(usuarios.get(x).getNome());
+                for (int x = 0 ; x < b.size() ; x++) {
+                    System.out.println(b.get(x).getNome());
                 }
             }
         }
