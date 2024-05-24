@@ -1,31 +1,16 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package com.mycompany.projeto.musica1;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class Aula {
-    private String titulo;
-    private String descricao;
-    private int duracao;
-    
-
-
-    // Construtor
-    public Aula(String titulo, String descricao, int duracao) {
-        this.titulo = titulo;
-        this.descricao = descricao;
-        this.duracao = duracao;
-    }
-    
-    public String getName() {
-        return titulo;
-    }
-
-    // Métodos getters e setters
-    // ...
-}
-
-// Classe principal
+/**
+ *
+ * @author 202301095701
+ */
 public class ProjetoMusica1 {
     public static void main(String[] args) {
         // Criando um ArrayList para armazenar as aulas
@@ -58,42 +43,17 @@ public class ProjetoMusica1 {
        
         int teste = 0;
         while (teste == 0) {
-            System.out.println("1- Adicionar Aula 2- Adicionar Aluno 3- Listar Aula 4- Listar Alunos 5- Login 6- Sair");
+            System.out.println("1- Login 2- Cadastrar 3- Sair");
                                 
             Scanner scanner = new Scanner(System.in);
             int cursor = scanner.nextInt();
             
-            if (cursor >= 7 || cursor <= 0) {
+            if (cursor >= 4 || cursor <= 0) {
                 System.out.println("Tente De novo");
             }
             
-            if (cursor == 6) {
-                teste = 1;
-            }
-            
-            if (cursor == 1) {
-                System.out.println("Escreve o Titulo");
-                nome = scanner.next();
-                
-                System.out.println("Descreve a aula");
-                descricao = scanner.next();
-                
-                System.out.println("Da a Duracao");
-                duracao = scanner.nextInt();
-  
-                aulas.add(new Aula(nome,descricao,duracao));
-            }
-            
             if (cursor == 3) {
-               for (int x = 0 ; x < aulas.size() ; x++) {
-                    System.out.println(aulas.get(x).getName());
-                } 
-            }
-            
-            if (cursor == 4) {
-                for (int x = 0 ; x < usuarios.size() ; x++) {
-                    System.out.println(usuarios.get(x).getNome());
-                }
+                teste = 1;
             }
             
             if (cursor == 2){
@@ -109,7 +69,7 @@ public class ProjetoMusica1 {
                 usuarios.add(new Usuario(nome,username,senha));
             }
             
-            if (cursor == 5) {
+            if (cursor == 1) {
                 System.out.println("Username: ");
                 username = scanner.next();
 
@@ -121,7 +81,9 @@ public class ProjetoMusica1 {
                     if (usuario.getUsername().equals(username) && usuario.getSenha().equals(senha)) {
                         loggedIn = true;
                         System.out.println("Login bem-sucedido!");
-                        break;
+                        
+                        FoiLogado metodo = new FoiLogado();
+                        metodo.telaprof();
                     }
                 }
 
@@ -132,3 +94,4 @@ public class ProjetoMusica1 {
         }
     }
 }
+
