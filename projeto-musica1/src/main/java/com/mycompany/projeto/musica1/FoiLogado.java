@@ -78,7 +78,35 @@ public class FoiLogado {
         }
     }
     
-    public void telaaluno() {
+    public void telaaluno(ArrayList<Aula> a, ArrayList<Usuario> b) {
+        String nome = "";
+        String descricao = "";
+        int duracao = 0;
+        
+        String username;
+        String senha;
+       
+        int teste = 0;
+        while (teste == 0) {
+            System.out.println("1- Listar Aula 2- Sair");
+                                
+            Scanner scanner = new Scanner(System.in);
+            int cursor = scanner.nextInt();
+            
+            if (cursor >= 3 || cursor <= 0) {
+                System.out.println("Tente De novo");
+            }
+            
+            if (cursor == 2) {
+                teste = 1;
+            }
+            
+            if (cursor == 1) {
+               for (int x = 0 ; x < a.size() ; x++) {
+                    System.out.println(a.get(x).getName());
+                } 
+            }
+        }
     }
     
     
